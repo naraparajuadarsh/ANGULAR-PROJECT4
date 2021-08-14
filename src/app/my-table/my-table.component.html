@@ -1,4 +1,4 @@
-<div>
+<div class="t">
     <table class="table table-striped">
         <thead class="thead-dark bg-success">
             <tr>
@@ -12,11 +12,11 @@
         </thead>
         <tbody>
             <tr *ngFor="let object of objects; let i=index">
-                <td>{{object.name}}</td>
-                <td>{{object.id}}</td>
-                <td>{{object.year}}</td>
-                <td>{{object.color}}</td>
-                <td>{{object.pantone_value}}</td>
+                <td><b>{{object.name}}</b></td>
+                <td><b>{{object.id}}</b></td>
+                <td><b>{{object.year}}</b></td>
+                <td><b>{{object.color}}</b></td>
+                <td><b>{{object.pantone_value}}</b></td>
                 <td><button (click)="delete(i)">delete</button></td>
             </tr>
         </tbody>
