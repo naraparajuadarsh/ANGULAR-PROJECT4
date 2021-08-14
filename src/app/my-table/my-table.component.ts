@@ -13,7 +13,7 @@ export class MyTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.myservice.gettable().subscribe(value=>{
-      this.objects=value.data;
+      this.objects=value;
       console.log(value)
     })
    
