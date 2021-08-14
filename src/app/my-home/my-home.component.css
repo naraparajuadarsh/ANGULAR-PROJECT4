@@ -1,0 +1,9 @@
+.img{
+    background-image: url(computer.jpg);
+    width: 1522px;
+    height: 700px;
+}
+.h{
+    text-align: center;
+    color: red;
+}
