@@ -1,1 +1,76 @@
-<p>my-form works!</p>
+<div class="f">
+    <form  [formGroup]="myfriends">
+        <h1 class="p"><b>Employee Form</b></h1>
+        <div class="form-group" [ngClass]="{'has error': myfriends.controls.name.errors &&  myfriends.controls.name.touched}">
+                <div class="form-group">
+                    <label for="Name"><b>Name:</b></label>
+                    <input type="text" class="form-control" id="Name" placeholder="Enter Name" name="Name" formControlName="name" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                    <span class="help-block" *ngIf="myfriends.controls.name.errors &&  myfriends.controls.name.touched">
+                        <span *ngIf="myfriends.controls.name.errors?.required">
+                          Full Name is required
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="Id"><b>Id:</b></label>
+                    <input type="number" class="form-control" id="Id" placeholder="Enter Id" name="id" formControlName="id" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                    <span class="help-block" *ngIf="myfriends.controls.id.errors &&  myfriends.controls.id.touched">
+                        <span *ngIf="myfriends.controls.id.errors?.required">
+                          id is required
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="Year"><b>Year:</b></label>
+                    <input type="number" class="form-control" id="Year" placeholder="Enter Year" name="Year" formControlName="year" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                    <span class="help-block" *ngIf="myfriends.controls.year.errors &&  myfriends.controls.year.touched">
+                        <span *ngIf="myfriends.controls.year.errors?.required">
+                          year is required
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="Color"><b>Color:</b></label>
+                    <input type="text" class="form-control" id="Color" placeholder="Enter Color" name="Color" formControlName="color" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                    <span class="help-block" *ngIf="myfriends.controls.color.errors &&  myfriends.controls.color.touched">
+                        <span *ngIf="myfriends.controls.color.errors?.required">
+                          color is required
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="Pantone_Value"><b>Pantone_Value:</b></label>
+                    <input type="text" class="form-control" id="Pantone_Value" placeholder="Enter Pantone_Value" name="Pantone_Value" formControlName="pantone_value" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                    <div formArrayName="cars" *ngFor="let car of myfriends.controls.cars.value"> 
+                            <div class="form-group">
+                                <label for="cars"><b>Cars:</b></label>
+                                <input type="text" class="form-control" id="Id" placeholder="Enter cars" name="cars"  formControlName="cars" required>
+                                <label for="cars"><b>Age:</b></label>
+                                <input type="number" class="form-control" id="Id" placeholder="Enter Age" name="Age"  formControlName="Age" required>
+                            </div>
+                    </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember" required> <b>I agree.</b>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Check this checkbox to continue.</div>
+                    </label>
+                </div>
+            <button class="btn btn-primary" (click)="submit()">Submit</button><br><br>
+            <button class="btn btn-secondary" (click)="addcars()">addcars</button>
+        </div>
+    </form>
+</div>
