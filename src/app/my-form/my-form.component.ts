@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MyProjectService } from '../my-project.service';
 
@@ -7,10 +7,11 @@ import { MyProjectService } from '../my-project.service';
   templateUrl: './my-form.component.html',
   styleUrls: ['./my-form.component.css']
 })
-export class MyFormComponent implements OnInit {
+export class MyFormComponent implements OnInit, OnChanges {
   myfriends:FormGroup;
 
   formArray:any;
+  @Input() mypersons:any=null;
 
   constructor(private myservice:MyProjectService) {
     this.myfriends=new FormGroup({
@@ -18,7 +19,7 @@ export class MyFormComponent implements OnInit {
       id:new FormControl(null,Validators.required),
       year:new FormControl(null,Validators.required),
       color:new FormControl(null,Validators.required),
-      pantone_value:new FormControl(),
+      age:new FormControl(),
       cars:new FormArray([])
     })
    }
@@ -49,6 +50,10 @@ export class MyFormComponent implements OnInit {
 
   formdelete(index:number){
     (<FormArray>this.myfriends.controls.cars).removeAt(index)
+  }
+
+  ngOnChanges(): void{
+    this.myfriends.patchValue(this.mypersons)
   }
 
   ngOnInit(): void {

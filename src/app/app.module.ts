@@ -9,6 +9,7 @@ import { MyFormComponent } from './my-form/my-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MyPageNotFoundComponent } from './my-page-not-found/my-page-not-found.component';
+import { MyDetailsPageComponent } from './my-details-page/my-details-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MyPageNotFoundComponent } from './my-page-not-found/my-page-not-found.c
     MyTableComponent,
     MyFormComponent,
     MyPageNotFoundComponent,
+    MyDetailsPageComponent,
   ],
   imports: [
     BrowserModule,

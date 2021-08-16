@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MyProjectService } from '../my-project.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { MyProjectService } from '../my-project.service';
 })
 export class MyTableComponent implements OnInit {
   objects:any=[]
-
+  detailsobjects:any=null;
+  persons:any=null;
   constructor(private myservice:MyProjectService) { }
 
   ngOnInit(): void {
@@ -21,6 +22,16 @@ export class MyTableComponent implements OnInit {
   delete(index:number){
     this.myservice.delete(index)
 
+  }
+
+  tr(object:any){
+    this.persons=null;
+    this.detailsobjects=object;
+  }
+
+  edit(object:any){
+    this.detailsobjects=null;
+    this.persons=object;
   }
   
 }

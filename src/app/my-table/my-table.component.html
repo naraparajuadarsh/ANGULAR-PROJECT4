@@ -7,21 +7,23 @@
                 <th><b>Id</b></th>
                 <th><b>Year</b></th>
                 <th><b>Color</b></th>
-                <th><b>Pantone_Value</b></th>
                 <th><b>Age</b></th>
                 <th><b>Delete</b></th>
+                <th><b>Edit</b></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let object of objects; let i=index">
+            <tr *ngFor="let object of objects; let i=index" (click)="tr(object)" >
                 <td><b>{{object.name}}</b></td>
                 <td><b>{{object.id}}</b></td>
                 <td><b>{{object.year}}</b></td>
                 <td><b>{{object.color}}</b></td>
-                <td><b>{{object.pantone_value}}</b></td>
                 <td><b>{{object.age}}</b></td>
                 <td><button (click)="delete(i)">delete</button></td>
+                <td><button (click)="edit(object);$event.stopPropagation()">Edit</button></td>
             </tr>
         </tbody>
     </table>
+    <app-my-details-page *ngIf="detailsobjects" [objects]="detailsobjects"></app-my-details-page>
+    <app-my-form *ngIf="persons" [mypersons]="persons"></app-my-form>
 </div>

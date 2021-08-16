@@ -1,6 +1,6 @@
 <div class="f">
     <form  [formGroup]="myfriends">
-        <h1 class="p"><b>Employee Form</b></h1>
+        <h1 class="p"><b>Registration Employee Form</b></h1>
         <div class="form-group" [ngClass]="{'has error': myfriends.controls.name.errors &&  myfriends.controls.name.touched}">
                 <div class="form-group">
                     <label for="Name"><b>Name:</b></label>
@@ -47,8 +47,8 @@
                     </span>
                 </div>
                 <div class="form-group">
-                    <label for="Pantone_Value"><b>Pantone_Value:</b></label>
-                    <input type="text" class="form-control" id="Pantone_Value" placeholder="Enter Pantone_Value" name="Pantone_Value" formControlName="pantone_value" required>
+                    <label for="Age"><b>Age:</b></label>
+                    <input type="number" class="form-control" id="Age" placeholder="Enter age" name="age" formControlName="age" required>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
@@ -77,3 +77,4 @@
         </div>
     </form>
 </div>
+<app-my-details-page *ngIf="myfriends.touched" [objects]="myfriends.value"></app-my-details-page>
