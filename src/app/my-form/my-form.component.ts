@@ -25,13 +25,15 @@ export class MyFormComponent implements OnInit {
 
    addcars()
     {
-      (<FormArray>this.myfriends.controls.cars).push(
+      (<FormArray>this.myfriends.controls.cars).controls.push(
             new FormGroup({
               name:new FormControl(),
               cars:new FormControl(),
               age:new FormControl()
             })
       )
+
+      this.myfriends.controls.cars.updateValueAndValidity();
         console.log(this.myfriends.controls.cars.value)
     }
 
@@ -43,6 +45,10 @@ export class MyFormComponent implements OnInit {
     error=>{
       alert("fail")
     }) 
+  }
+
+  formdelete(index:number){
+    (<FormArray>this.myfriends.controls.cars).removeAt(index)
   }
 
   ngOnInit(): void {

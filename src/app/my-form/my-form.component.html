@@ -53,13 +53,16 @@
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
 
-                    <div formArrayName="cars" *ngFor="let car of myfriends.controls.cars.value"> 
+                    <div formArrayName="cars" *ngFor="let car of myfriends.controls.cars.value; let i = index"> 
+                        <div [formGroupName]="i">
                             <div class="form-group">
                                 <label for="cars"><b>Cars:</b></label>
                                 <input type="text" class="form-control" id="Id" placeholder="Enter cars" name="cars"  formControlName="cars" required>
                                 <label for="cars"><b>Age:</b></label>
                                 <input type="number" class="form-control" id="Id" placeholder="Enter Age" name="Age"  formControlName="Age" required>
+                                <button (click)="formdelete(i)">Remove</button>
                             </div>
+                        </div>
                     </div>
 
                 <div class="form-group form-check">
