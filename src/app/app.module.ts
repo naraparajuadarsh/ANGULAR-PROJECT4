@@ -8,6 +8,7 @@ import { MyTableComponent } from './my-table/my-table.component';
 import { MyFormComponent } from './my-form/my-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MyPageNotFoundComponent } from './my-page-not-found/my-page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     MyHomeComponent,
     MyTableComponent,
     MyFormComponent,
+    MyPageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
